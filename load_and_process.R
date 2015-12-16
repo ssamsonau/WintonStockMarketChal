@@ -1,7 +1,10 @@
 #load the data table faster
 library(data.table)
-DT <- fread("train.csv")
-DT2 <- fread("test.csv")
+if(!exists("data/train.csv")) unzip("data/train.csv.zip", exdir = "data")
+if(!exists("data/test.csv")) unzip("data/test.csv.zip", exdir = "data")
+
+DT <- fread("data/train.csv")
+DT2 <- fread("data/test.csv")
 
 DT <- DT[1:1000, ]
 
